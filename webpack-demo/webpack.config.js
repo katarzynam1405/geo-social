@@ -1,12 +1,25 @@
 const webpack = require('webpack')
 const path = require('path')
 
+
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+
+const extraxtCommons = new webpack.optimize.CommonsChunkPlugin({
+    name: 'commons',
+    filename: 'commons.js'
+})
+
 const config = {
     context: path.resolve(__dirname, 'src'),
-    entry: './app.js',
+    entry: {
+        app: './app.js',
+        admin: './admin.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        publicPath: '/dist/',
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [{
@@ -23,11 +36,14 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
+                loader: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
             },
             {
                 test: /\.(png|jpg)$/,
@@ -37,6 +53,11 @@ const config = {
                 }]
             }
         ]
-    }
-}
+    },
+    plugins: [
+        new webpack.NamedModulesPlugin(),
+        new ExtractTextPlugin("styles.css"),
+        extraxtCommons
+    ]
+};
 module.exports = config;
