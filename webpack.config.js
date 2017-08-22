@@ -14,7 +14,9 @@ const config = {
     context: path.resolve(__dirname, 'src'),
     entry: {
         app: './app.js',
-        admin: './admin.js'
+    },
+    devServer: {
+        hot: true
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -57,6 +59,7 @@ const config = {
     plugins: [
         new webpack.NamedModulesPlugin(),
         new ExtractTextPlugin("styles.css"),
+        new webpack.HotModuleReplacementPlugin(),
         extraxtCommons
     ]
 };
