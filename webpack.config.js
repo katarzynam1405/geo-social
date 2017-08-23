@@ -1,9 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
-
-
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 
 const extraxtCommons = new webpack.optimize.CommonsChunkPlugin({
     name: 'commons',
@@ -54,7 +51,15 @@ const config = {
                     options: { limit: 10000 }
                 }]
             }
-        ]
+        ],
+        loaders: [{
+            test: /\.js$/,
+            include: [
+                path.resolve(__dirname, 'src')
+            ],
+            loader: 'eslint',
+            exclude: /node_modules/
+        }]
     },
     plugins: [
         new webpack.NamedModulesPlugin(),
