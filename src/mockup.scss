@@ -1,0 +1,116 @@
+/*scss variables*/
+
+$light-gray-first: #f8f8f8;
+$light-gray-second:#f7f7f7;
+$dark-gray: #292b2c;
+$center-div: 0 auto;
+$img-size: 20px;
+$mobile-breakpoint: 480px;
+$tablet-breakpoint: 768px;
+
+/*sass mixins*/
+
+
+/*try to clear wird shit in the top broser*/
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/*main style */
+
+.wraper {
+    width: 100%;
+    height: 100%;
+    margin: -30px auto 0;
+    background: $light-gray-first;
+}
+
+.img-container {
+    padding: 20px;
+    width: 85%;
+    margin: $center-div;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: #fafafa;
+    background: -webkit-linear-gradient(#ffffff, $light-gray-first);
+    background: -o-linear-gradient(#ffffff, $light-gray-first);
+    background: -moz-linear-gradient(#ffffff, $light-gray-first);
+    background: linear-gradient(#ffffff, $light-gray-first);
+}
+
+.box-img {
+    flex-basis: 1 1 0;
+    margin: 20px;
+    img {
+        max-width: $img-size;
+        height: $img-size;
+    }
+}
+
+.main-header {
+    width: 80%;
+    margin: 30px auto 45px;
+    font-size: 25px;
+    padding: 15px 0;
+    text-align: center;
+    background: $dark-gray;
+    color: #00b0eb;
+}
+
+button.button.icon {
+    margin: 50px auto;
+    background-color: #00b0eb;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    display: block;
+    span {
+        padding-right: 30px;
+        color: #fff;
+        font-weight: bold;
+        background: url(img/checked.png) no-repeat 0;
+        background-position: right;
+        background-color: #00b0eb;
+    }
+}
+
+.footer {
+    margin: 50px auto;
+    width: 85%;
+    min-height: 145px;
+    background: $dark-gray;
+    display: flex;
+    flex-wrap: wrap;
+    .footer-content {
+        padding: 0 10px;
+        flex: 1 1 0;
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+        align-self: center;
+        .footer-content.column {
+            font-size: 14px;
+            color: #777;
+        }
+    }
+}
+
+@media all and (max-width: $mobile-breakpoint) {
+    .footer-content,
+    .footer {
+        display: block;
+    }
+    .footer-content {
+        padding: 10px;
+    }
+}

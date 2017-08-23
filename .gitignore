@@ -1,6 +1,7 @@
 # Dependency directories
 /node_modules/
 /dist/
+/mockup/lite-server/node_modules/
 
 #log
 *.log
