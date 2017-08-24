@@ -12,13 +12,13 @@ const config = {
     entry: {
         app: './app.js',
     },
-    devServer: {
-        hot: true
-    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/dist/',
         filename: '[name].bundle.js'
+    },
+    devServer: {
+        hot: true
     },
     module: {
         rules: [{
