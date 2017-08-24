@@ -4,13 +4,13 @@ import './style.scss'
 import codeURL from './code.png'
 
 
-const managerGroups = groupBy(people, 'manager');
+// const managerGroups = groupBy(people, 'manager');
 
-const root = document.querySelector('#root');
-root.innerHTML = `<pre>${JSON.stringify(managerGroups, null, 2)}</pre>`
+// const root = document.querySelector('#root');
+// root.innerHTML = `<pre>${JSON.stringify(managerGroups, null, 2)}</pre>`
 
-if (module.hot) {
-    module.hot.accept('./people', function() {
-        console.log('bangla');
-    })
-}
+// if (module.hot) {
+//     module.hot.accept('./people', function() {
+//         console.log('bangla');
+//     })
+// }
