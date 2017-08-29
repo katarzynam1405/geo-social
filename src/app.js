@@ -6,12 +6,15 @@ import geolocation from './modules/geolocation/geolocation';
 
 
 function geo(Position) {
-    return Position;
+    console.log(Position);
 }
 
 function error(PositionError) {
-    return PositionError;
+    console.log(PositionError, PositionError.message);
 }
-geolocation(geo, error);
 
-button(geolocation);
+function initGeolocation() {
+    geolocation(geo, error);
+};
+
+button(initGeolocation);
