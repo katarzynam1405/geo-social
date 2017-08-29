@@ -1,16 +1,20 @@
 import { groupBy } from 'lodash/collection'
-import people from './people'
-import './style.scss'
-import codeURL from './code.png'
+import './style.scss';
+import './modules/button/button.scss';
+import button from './modules/button/button';
+import geolocation from './modules/geolocation/geolocation';
 
 
-// const managerGroups = groupBy(people, 'manager');
+function geo(Position) {
+    console.log(Position);
+}
 
-// const root = document.querySelector('#root');
-// root.innerHTML = `<pre>${JSON.stringify(managerGroups, null, 2)}</pre>`
+function error(PositionError) {
+    console.log(PositionError, PositionError.message);
+}
 
-// if (module.hot) {
-//     module.hot.accept('./people', function() {
-//         console.log('bangla');
-//     })
-// }
+function initGeolocation() {
+    geolocation(geo, error);
+};
+
+button(initGeolocation);
