@@ -6,11 +6,11 @@ import geolocation from './modules/geolocation/geolocation';
 
 
 function geo(Position) {
-    console.log("GEO", Position);
+    return Position;
 }
 
 function error(PositionError) {
-    console.log("err", PositionError, PositionError.message);
+    return PositionError;
 }
 geolocation(geo, error);
 
