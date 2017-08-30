@@ -1,5 +1,6 @@
-export default function flashAlert(show){
-    setTimeout( function show(message){
-        alert("z flashAlert")
-    }, 3000);
+export default function flashAlert(){
+    setTimeout( function hideMessage(){
+        document.querySelector('.flash-message').style.display="none";
+    }
+    , 5000)
 }

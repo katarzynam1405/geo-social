@@ -9,15 +9,14 @@ import flashAlert from './modules/flashAlert/flashAlert';
 function geo(Position) {
     console.log(Position);
 }
-function show(message){
-    console.log(message)
+function show(message, type){ 
+    document.querySelector('.flash-message').innerHTML = `<div class="alert"><p type=${type} class="alert-message">${message} !!</p></div>`;
 }
 
 function error(PositionError) {
     console.log(PositionError, PositionError.message);
-    show("User denied");
+    show(PositionError.message, "warning")
 } 
-
 
 function initGeolocation() {
     geolocation(geo, error);
