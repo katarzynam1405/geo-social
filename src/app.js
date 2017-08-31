@@ -6,17 +6,13 @@ import geolocation from './modules/geolocation/geolocation';
 import alert from './modules/alert/alert';
 
 
-function show(message) {
-    console.log(message)
-}
-
 function geo(position) {
     console.log(position);
 }
 
 function error(positionError) {
     console.log(positionError, positionError.message);
-    alert(positionError.message, "warning", 50000000)
+    alert(positionError.message, "warning", 2000)
 }
 
 function initGeolocation() {
