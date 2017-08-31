@@ -10,13 +10,13 @@ function show(message) {
     console.log(message)
 }
 
-function geo(Position) {
-    console.log(Position);
+function geo(position) {
+    console.log(position);
 }
 
-function error(PositionError) {
-    console.log(PositionError, PositionError.message);
-    alert(PositionError.message)
+function error(positionError) {
+    console.log(positionError, positionError.message);
+    alert(positionError.message, "warning", 50000000)
 }
 
 function initGeolocation() {
@@ -24,7 +24,3 @@ function initGeolocation() {
 };
 
 button(initGeolocation);
-
-function initAlert() {
-    alert(show);
-};
