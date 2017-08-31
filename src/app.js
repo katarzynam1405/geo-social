@@ -1,20 +1,23 @@
 import { groupBy } from 'lodash/collection'
-import './style.scss';
-import './modules/button/button.scss';
+
+import alert from './modules/alert/alert';
 import button from './modules/button/button';
 import geolocation from './modules/geolocation/geolocation';
 
+import './style.scss';
+import './modules/button/button.scss';
 
-function geo(Position) {
-    console.log(Position);
+function onGeolocationSuccess(position) {
+    console.log(position);
 }
 
-function error(PositionError) {
-    console.log(PositionError, PositionError.message);
+function onGeolocationError(positionError) {
+    console.log(positionError, positionError.message);
+    alert(positionError.message, "warning", 5000);
 }
 
-function initGeolocation() {
-    geolocation(geo, error);
+function onClickHandler() {
+    geolocation(onGeolocationSuccess, onGeolocationError);
 };
 
-button(initGeolocation);
+button(onClickHandler);
