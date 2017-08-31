@@ -7,10 +7,6 @@ import geolocation from './modules/geolocation/geolocation';
 import './style.scss';
 import './modules/button/button.scss';
 
-function show(message) {
-    console.log(message)
-}
-
 function onGeolocationSuccess(position) {
     console.log(position);
 }
