@@ -12,7 +12,7 @@ function geo(position) {
 
 function error(positionError) {
     console.log(positionError, positionError.message);
-    alert(positionError.message, "warning", 2000)
+    alert(positionError.message, "warning", 5000)
 }
 
 function initGeolocation() {
