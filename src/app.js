@@ -15,7 +15,7 @@ function error(positionError) {
     alert(positionError.message, "warning", 5000)
 }
 
-function initGeolocation() {
+function buttonClickHandler() {
     geolocation(geo, error);
 };
 
