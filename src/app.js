@@ -1,4 +1,4 @@
-import { groupBy } from 'lodash/collection';
+import { groupBy } from 'lodash/collection'
 
 import alert from './modules/alert/alert';
 import button from './modules/button/button';
@@ -7,6 +7,9 @@ import geolocation from './modules/geolocation/geolocation';
 import './style.scss';
 import './modules/button/button.scss';
 
+function show(message) {
+    console.log(message)
+}
 
 function onGeolocationSuccess(position) {
     console.log(position);
@@ -14,11 +17,11 @@ function onGeolocationSuccess(position) {
 
 function onGeolocationError(positionError) {
     console.log(positionError, positionError.message);
-    alert(positionError.message, "warning", 5000)
+    alert(positionError.message, "warning", 5000);
 }
 
 function onClickHandler() {
-    geolocation(geo, error);
+    geolocation(onGeolocationSuccess, onGeolocationError);
 };
 
-button(initGeolocation);
+button(onClickHandler);

@@ -1,3 +1,3 @@
-export default function button(initGeolocation) {
-    document.querySelector('button.button.icon').addEventListener('click', initGeolocation);
+export default function button(onClickHandler) {
+    document.querySelector('button.button.icon').addEventListener('click', onClickHandler);
 };
