@@ -1,14 +1,18 @@
-export default function geolocation(onSuccess, onError) {
+  
+const geolocation = (onSuccess, onError)=>{
+    new Promise((resolve, reject)=> {
     if ("geolocation" in navigator) {
-        new Promise(function geolocation (){
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-        });
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        
+        setTimeout(function(){
+            resolve(onSuccess); 
+        }, 250);
+        setTimeout(function(){
+            reject(onError); 
+        }, 250);
+
     }
-    geolocation()
-        .then((onSuccess)=>{
-            onSuccess()
-        })
-        .catch((onError)=>{
-            onError()
-        })
-};
+ });
+}
+export default geolocation;
+
