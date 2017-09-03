@@ -17,7 +17,7 @@ function onGeolocationError(positionError) {
 }
 
 function onClickHandler() {
-    geolocation(onGeolocationSuccess, onGeolocationError);
+    geolocation.then(onGeolocationSuccess).catch(onGeolocationError);
 };
 
 button(onClickHandler);
