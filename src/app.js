@@ -21,5 +21,3 @@ function onClickHandler() {
 };
 
 button(onClickHandler);
-
-geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
