@@ -1,5 +1,7 @@
-export default function geolocation(onSuccess, onError) {
+let geolocation = new Promise(function(resolved, rejected) {
     if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError)
+        navigator.geolocation.getCurrentPosition(resolved, rejected)
     }
-};
+});
+
+export default geolocation;
