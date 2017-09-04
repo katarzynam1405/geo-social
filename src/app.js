@@ -7,16 +7,16 @@ import geolocation from './modules/geolocation/geolocation';
 import './style.scss';
 import './modules/button/button.scss';
 
-function onGeolocationSuccess(position) {
+function onGeolocationSuccess(position){
     console.log(position);
 }
 
-function onGeolocationError(positionError) {
+function onGeolocationError(positionError){
     console.log(positionError, positionError.message);
     alert(positionError.message, "warning", 5000);
 }
 
-function onClickHandler() {
+function onClickHandler(){
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
 };
 
