@@ -19,14 +19,15 @@ function onGeolocationError(positionError) {
 
 function onClickHandler() {
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
+    API().then(parseJson).catch(e => alert(e, "warning", 5000));
 };
 
-function onAPIError(ex){
-    console.log(ex);
-}
+
 function parseJson(json){
-    console.log(json.data.forEach((data) => console.log(data.images.standard_resolution.url)))
+    console.log(json.data.forEach((data) => console.log(data.name, data.latitude, data.longitude)))
 }
 
 button(onClickHandler);
-API().then(parseJson).catch(onAPIError);
+  
+
+

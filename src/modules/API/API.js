@@ -5,9 +5,10 @@ export default function API() {
 
 return new Promise ((resolve, reject)=> {
     resolve(
-        fetchJsonp('https://api.instagram.com/v1/users/5925631471/media/recent/?access_token=' + ACCESS_TOKEN).then(function (response){
-         return response.json()
+        fetchJsonp(`https://api.instagram.com/v1/locations/search?lat=48.858844&lng=2.294351&access_token=${ACCESS_TOKEN}`)
+        .then(function (response){
+         return response.json()     
+         throw "something went wrong";
     }))
-    reject(new Error("error"))
 })
 }
