@@ -1,5 +1,7 @@
-export default function geolocation(onSuccess, onError) {
+export default function geolocation(){
+    return new Promise((resolve, reject)=> {
     if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError)
+        navigator.geolocation.getCurrentPosition(resolve, reject);
     }
-};
+ })
+}

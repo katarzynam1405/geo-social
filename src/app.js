@@ -1,5 +1,6 @@
 import { groupBy } from 'lodash/collection'
 
+import API from './modules/API/API';
 import alert from './modules/alert/alert';
 import button from './modules/button/button';
 import geolocation from './modules/geolocation/geolocation';
@@ -17,7 +18,9 @@ function onGeolocationError(positionError) {
 }
 
 function onClickHandler() {
-    geolocation(onGeolocationSuccess, onGeolocationError);
+    geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
 };
 
 button(onClickHandler);
+
+API();
