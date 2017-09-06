@@ -21,6 +21,12 @@ function onClickHandler() {
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
 };
 
-button(onClickHandler);
+function onAPIError(ex){
+    console.log(ex);
+}
+function parseJson(json){
+    console.log(json.data.forEach((data) => console.log(data.images.standard_resolution.url)))
+}
 
-API();
+button(onClickHandler);
+API().then(parseJson).catch(onAPIError);
