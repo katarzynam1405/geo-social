@@ -9,7 +9,8 @@ import './style.scss';
 import './modules/button/button.scss';
 
 function onGeolocationSuccess(position) {
-    console.log(position);
+    console.log(position.coords.latitude, position.coords.longitude);
+    API(position.coords.latitude, position.coords.longitude);
 }
 
 function onGeolocationError(positionError) {
@@ -19,12 +20,11 @@ function onGeolocationError(positionError) {
 
 function onClickHandler() {
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
-    API().then(parseJson).catch(e => alert(e, "warning", 5000));
+    API().then(parseJson).catch(e => alert(e, "warning", 100000));
 };
 
-
-function parseJson(json){
-    console.log(json.data.forEach((data) => console.log(data.name, data.latitude, data.longitude)))
+function parseJson(data){
+    console.log(data.photos.photo.forEach((photo)=> console.log(photo.farm, photo.id, photo.secret, photo.server, photo.title)))
 }
 
 button(onClickHandler);
