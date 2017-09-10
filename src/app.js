@@ -10,7 +10,7 @@ import './modules/button/button.scss';
 
 function onGeolocationSuccess(position) {
     console.log(position.coords.latitude, position.coords.longitude);
-    API(position.coords.latitude, position.coords.longitude);
+    API(position.coords.latitude, position.coords.longitude).then(parseJson).catch(e => alert(e, "warning", 100000));
 }
 
 function onGeolocationError(positionError) {
@@ -18,16 +18,16 @@ function onGeolocationError(positionError) {
     alert(positionError.message, "warning", 5000);
 }
 
-function onClickHandler() {
-    geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
-    API().then(parseJson).catch(e => alert(e, "warning", 100000));
-};
-
-function parseJson(data){
-    console.log(data.photos.photo.forEach((photo)=> console.log(photo.farm, photo.id, photo.secret, photo.server, photo.title)))
+function parseJson(data) {
+    console.log(data.photos.photo.forEach((photo) => console.log(photo.farm, photo.id, photo.secret, photo.server, photo.title)))
+    data.photos.photo.forEach((photo) => {
+        const src = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
+        console.log(src)
+    })
 }
 
+function onClickHandler() {
+    geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
+};
+
 button(onClickHandler);
-  
-
-
