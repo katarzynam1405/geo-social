@@ -24,11 +24,15 @@ function onClickHandler() {
 
 function parseJson(data){
    data.photos.photo.forEach((photo)=> console.log(photo.farm, photo.id, photo.secret, photo.server, photo.title, 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'))
+   
+   const imgContainer = document.querySelector('.img-container .box-img');
+   const createImage = document.createDocumentFragment();
    data.photos.photo.forEach((photo) =>{
-      let img = document.createElement('img');
-      img.src='https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
-      document.querySelector('.img-container .box-img').appendChild(img);
+       const img = document.createElement('img');
+       img.src='https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
+       createImage.appendChild(img);
    })
+   imgContainer.appendChild(createImage);
 }
 
 button(onClickHandler);
