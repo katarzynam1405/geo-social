@@ -1,15 +1,15 @@
-import fetchJsonp from 'fetch-jsonp';
-export default function API() {
+const AUTHENTICATION_TOKEN = '72157686306802023-7d71594e353976d7';
 
-    var accessToken = '5925631471.f6cf8b6.823d3d8eecb448fead1e72859de9208a';
+const API_KEY = "2013b82e85e24a21d394ae641cd9d903";
+const API_SIG = '6af9bc90ea313d61d88250337476e867';
 
-    fetchJsonp('https://api.instagram.com/v1/users/5925631471/media/recent/?access_token=' + accessToken)
-        .then(function(response) {
-            return response.json()
-        }).then(function(json) {
-            console.log(json.data.forEach((data) => console.log(data.images.standard_resolution.url)))
-        })
-        .catch(function(err) {
-            console.log(err)
-        })
+export default function API(latitude, longitude) {
+
+    return new Promise((resolve, reject) => {
+        resolve(
+            fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&lat=${latitude}&lon=${longitude}&format=json&nojsoncallback=1`)
+            .then(function(response) {
+                return response.json();
+            }))
+    })
 }

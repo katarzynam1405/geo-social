@@ -9,7 +9,8 @@ import './style.scss';
 import './modules/button/button.scss';
 
 function onGeolocationSuccess(position) {
-    console.log(position);
+    console.log(position.coords.latitude, position.coords.longitude);
+    API(position.coords.latitude, position.coords.longitude).then(parseJson).catch(e => alert(e, "warning", 100000));
 }
 
 function onGeolocationError(positionError) {
@@ -21,6 +22,20 @@ function onClickHandler() {
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
 };
 
+function parseJson(data){
+   data.photos.photo.forEach((photo)=> console.log(photo.farm, photo.id, photo.secret, photo.server, photo.title, 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'))
+   
+   const imgContainer = document.querySelector('.img-container .box-img');
+   const createImage = document.createDocumentFragment();
+   data.photos.photo.forEach((photo) =>{
+       const img = document.createElement('img');
+       img.src='https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
+       createImage.appendChild(img);
+   })
+   imgContainer.appendChild(createImage);
+}
+
 button(onClickHandler);
 
-API();
+
+
