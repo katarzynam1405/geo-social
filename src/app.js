@@ -18,16 +18,23 @@ function onGeolocationError(positionError) {
     alert(positionError.message, "warning", 5000);
 }
 
-function parseJson(data) {
-    console.log(data.photos.photo.forEach((photo) => console.log(photo.farm, photo.id, photo.secret, photo.server, photo.title)))
-    data.photos.photo.forEach((photo) => {
-        const src = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
-        console.log(src)
-    })
-}
-
 function onClickHandler() {
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
+    images();
 };
 
+function parseJson(data){
+   data.photos.photo.forEach((photo)=> console.log(photo.farm, photo.id, photo.secret, photo.server, photo.title, 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'))
+   data.photos.photo.forEach((photo) =>{
+      let img = document.createElement('img');
+      img.src='https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
+      img.width = 200;
+      img.height = 200; 
+      document.querySelector('.img-container').appendChild(img);
+   })
+}
+
 button(onClickHandler);
+
+
+

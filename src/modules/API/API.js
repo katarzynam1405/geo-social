@@ -1,4 +1,3 @@
-import fetchJsonp from 'fetch-jsonp';
 const AUTHENTICATION_TOKEN = '72157686306802023-7d71594e353976d7';
 
 const API_KEY = "2013b82e85e24a21d394ae641cd9d903";
