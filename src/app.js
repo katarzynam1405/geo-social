@@ -20,7 +20,6 @@ function onGeolocationError(positionError) {
 
 function onClickHandler() {
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
-    images();
 };
 
 function parseJson(data){
@@ -28,9 +27,7 @@ function parseJson(data){
    data.photos.photo.forEach((photo) =>{
       let img = document.createElement('img');
       img.src='https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
-      img.width = 200;
-      img.height = 200; 
-      document.querySelector('.img-container').appendChild(img);
+      document.querySelector('.img-container .box-img').appendChild(img);
    })
 }
 

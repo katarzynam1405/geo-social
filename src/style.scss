@@ -4,7 +4,7 @@
     $light-gray-second:#f7f7f7;
     $dark-gray: #292b2c;
     $center-div: 0 auto;
-    $img-size: 200px;
+    $img-size: 250px;
     $desktop-margins: 40px;
     $mobile-margins: 20px;
     $main-containers-flex: 1 1 0;
@@ -56,10 +56,13 @@
     }
     
     .box-img {
-        flex-basis: 1 1 0;
+        display: flex;
         margin: 20px;
+        flex-wrap: wrap;
         img {
-            max-width: $img-size;
+            margin: 20px;
+            flex: 1 1 0;
+            width: $img-size;
             height: $img-size;
         }
     }
