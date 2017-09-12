@@ -3,6 +3,7 @@ import { groupBy } from 'lodash/collection'
 import API from './modules/API/API';
 import alert from './modules/alert/alert';
 import button from './modules/button/button';
+import renderImage from './modules/images/images';
 import geolocation from './modules/geolocation/geolocation';
 
 import './style.scss';
@@ -24,6 +25,7 @@ function onClickHandler() {
 
 function parseJson(data){
    data.photos.photo.forEach((photo)=> console.log(photo.farm, photo.id, photo.secret, photo.server, photo.title, 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'))
+   renderImage(data)
 }
 
 button(onClickHandler);
