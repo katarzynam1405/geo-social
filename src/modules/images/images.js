@@ -1,10 +1,16 @@
 export  default function renderImage(data){
-     const imgContainer = document.querySelector('.img-container .box-img');
+    const imagesArrayPhotos = data.photos.photo;
+    console.log(imagesArrayPhotos)
+
+    const imgContainer = document.querySelector('.img-container .box-img');
         const createImage = document.createDocumentFragment();
-            data.photos.photo.forEach((photo) =>{
+       
+       for(let i=0; i<imagesArrayPhotos.length; i++){
+           if (i === 20) { break; }
             const img = document.createElement('img');
-            img.src='https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
+            img.src='https://farm' + imagesArrayPhotos[i].farm + '.staticflickr.com/' + imagesArrayPhotos[i].server + '/' + imagesArrayPhotos[i].id + '_' + imagesArrayPhotos[i].secret + '.jpg';
             createImage.appendChild(img);
-        })
+            
+       }
     imgContainer.appendChild(createImage);
 }
