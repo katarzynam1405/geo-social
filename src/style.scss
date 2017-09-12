@@ -128,7 +128,8 @@
     a:visited,
     a:focus,
     a:active,
-    a:-webkit-any-link {
+    a:-webkit-any-link,
+    a:-moz-any-link {
         color: inherit;
         text-decoration: none;
     }
