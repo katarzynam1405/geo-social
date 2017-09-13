@@ -24,11 +24,10 @@ function onClickHandler() {
 };
 
 function parseJson(data){
-   data.photos.photo.forEach((photo)=> console.log(photo.farm, photo.id, photo.secret, photo.server, photo.title, 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'))
-   renderImage(data)
+   data.photos.photo.forEach((photo)=>(photo.farm, photo.id, photo.secret, photo.server, photo.title, 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'))
+   renderImage(data);
 }
 
 button(onClickHandler);
-
 
 
