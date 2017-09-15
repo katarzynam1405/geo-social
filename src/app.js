@@ -4,7 +4,6 @@ import API from './modules/API/API';
 import alert from './modules/alert/alert';
 import button from './modules/button/button';
 import renderImage from './modules/image/image';
-import renderImages from './modules/images/images';
 import geolocation from './modules/geolocation/geolocation';
 
 import './style.scss';
@@ -19,19 +18,18 @@ function onGeolocationError(positionError) {
     console.log(positionError, positionError.message);
     alert(positionError.message, "warning", 5000);
 }
+let init=0;
+let added=20;
 
 function onClickHandler() {
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
-    
+    console.log(init+=20);
+    console.log(added+=20);
 }
 function parseJson(data){
    data.photos.photo.forEach((photo)=>(photo.farm, photo.id, photo.secret, photo.server, photo.title, 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'))
-   renderImage(data)
-}
-
-function onMoreButtonClickHandler(){
+   renderImage(data, init, added);
 }
 
 button(onClickHandler);
-
 
