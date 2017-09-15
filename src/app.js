@@ -18,18 +18,24 @@ function onGeolocationError(positionError) {
     console.log(positionError, positionError.message);
     alert(positionError.message, "warning", 5000);
 }
+
 let init=0;
 let added=20;
 
 function onClickHandler() {
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
-    console.log(init+=20);
+     console.log(init+=20);
     console.log(added+=20);
 }
 function parseJson(data){
-   data.photos.photo.forEach((photo)=>(photo.farm, photo.id, photo.secret, photo.server, photo.title, 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'))
-   renderImage(data, init, added);
-}
+    let images = data.photos.photo.slice(init, added);
 
+    const imgContainer = document.querySelector('.img-container .box-img');
+    const createImage = document.createDocumentFragment();
+    images.map(function getURL(photo){
+        const src = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
+       return src
+}).map(renderImage)
+}
 button(onClickHandler);
 
