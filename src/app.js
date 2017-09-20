@@ -23,7 +23,9 @@ function onGeolocationError(positionError) {
 }
 function onClickHandler() {
     geolocation().then(onGeolocationSuccess).catch(onGeolocationError);
+    document.querySelector('button.button.icon').style.display = "none";
 }
+
 let init=0;
 let added=20;
 
@@ -43,4 +45,5 @@ function onShowMoreClickHandler(data){
 }
 
 button(onClickHandler);
+
 imagesButton(onShowMoreClickHandler);
